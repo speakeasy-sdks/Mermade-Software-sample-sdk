@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Colors API
+  version: 1.0.0
+paths:
+  /color:
+    get:
+      operationId: getColor
+      parameters:
+      - name: foreground
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+            - red
+            - green
+            - blue
+      - name: background
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/color'
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    color:
+      type: string
+      enum:
+        - red
+        - green
+        - blue
